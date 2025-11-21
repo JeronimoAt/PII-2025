@@ -1,0 +1,1650 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Inmobiliaria",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Contrato/Simple": {
+      "post": {
+        "tags": [
+          "Contrato"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contrato"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contrato"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contrato"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Contrato/{id}": {
+      "get": {
+        "tags": [
+          "Contrato"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Contrato"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contrato"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contrato"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contrato"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Contrato"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Contrato": {
+      "get": {
+        "tags": [
+          "Contrato"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/InquilinosConDeuda": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/RecibosUltimosTresMeses": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/InquilinosSinDeuda": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/AdministracionesPorLocalidad": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/VentasPorLocalidad": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/ComisionesPorVendedor": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Inquilino": {
+      "get": {
+        "tags": [
+          "Inquilino"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Inquilino"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inquilino"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inquilino"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inquilino"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Inquilino/recibos": {
+      "get": {
+        "tags": [
+          "Inquilino"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Inquilino/Buscador": {
+      "get": {
+        "tags": [
+          "Inquilino"
+        ],
+        "parameters": [
+          {
+            "name": "texto",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tabla",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Inquilino/Simple": {
+      "post": {
+        "tags": [
+          "Inquilino"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inquilino"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inquilino"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inquilino"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Inquilino/Buscar": {
+      "get": {
+        "tags": [
+          "Inquilino"
+        ],
+        "parameters": [
+          {
+            "name": "texto",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Inquilino/{id}": {
+      "put": {
+        "tags": [
+          "Inquilino"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inquilino"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inquilino"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inquilino"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Inquilino"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Inquilino"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Inquilino/Todos": {
+      "get": {
+        "tags": [
+          "Inquilino"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Propiedad": {
+      "get": {
+        "tags": [
+          "Propiedad"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Propiedad/Buscar": {
+      "get": {
+        "tags": [
+          "Propiedad"
+        ],
+        "parameters": [
+          {
+            "name": "texto",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Propietario/Simple": {
+      "post": {
+        "tags": [
+          "Propietario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Propietario"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Propietario"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Propietario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Propietario": {
+      "get": {
+        "tags": [
+          "Propietario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Propietario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Propietario"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Propietario"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Propietario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Propietario/Buscar": {
+      "get": {
+        "tags": [
+          "Propietario"
+        ],
+        "parameters": [
+          {
+            "name": "texto",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Propietario/{id}": {
+      "put": {
+        "tags": [
+          "Propietario"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Propietario"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Propietario"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Propietario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Propietario"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Propietario"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Barrio": {
+        "type": "object",
+        "properties": {
+          "idBarrio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "barrio1": {
+            "type": "string",
+            "nullable": true
+          },
+          "localidad": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "direcciones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Direccione"
+            },
+            "nullable": true
+          },
+          "localidadNavigation": {
+            "$ref": "#/components/schemas/Localidade"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Clasificacione": {
+        "type": "object",
+        "properties": {
+          "idClasificacion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comentario"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Comentario": {
+        "type": "object",
+        "properties": {
+          "idComentario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "idClasificacion": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idInquilino": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idInmueble": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detallesInmuebles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetallesInmueble"
+            },
+            "nullable": true
+          },
+          "idClasificacionNavigation": {
+            "$ref": "#/components/schemas/Clasificacione"
+          },
+          "idInmuebleNavigation": {
+            "$ref": "#/components/schemas/Inmueble"
+          },
+          "idInquilinoNavigation": {
+            "$ref": "#/components/schemas/Inquilino"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConceptosPago": {
+        "type": "object",
+        "properties": {
+          "idConcepto": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "detallesRecibos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetallesRecibo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Contrato": {
+        "type": "object",
+        "properties": {
+          "idContrato": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idPropietario": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idInquilino": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idInmueble": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idInmuebleNavigation": {
+            "$ref": "#/components/schemas/Inmueble"
+          },
+          "idInquilinoNavigation": {
+            "$ref": "#/components/schemas/Inquilino"
+          },
+          "idPropietarioNavigation": {
+            "$ref": "#/components/schemas/Propietario"
+          },
+          "recibos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Recibo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DetallesInmueble": {
+        "type": "object",
+        "properties": {
+          "idDetalleInmueble": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idInmueble": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idDireccion": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ambientes": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "precioVenta": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "precioAlquiler": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "caracteristicasTecnicas": {
+            "type": "string",
+            "nullable": true
+          },
+          "imagen": {
+            "type": "string",
+            "nullable": true
+          },
+          "idTipoInmueble": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idComentario": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idDisponible": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idComentarioNavigation": {
+            "$ref": "#/components/schemas/Comentario"
+          },
+          "idDireccionNavigation": {
+            "$ref": "#/components/schemas/Direccione"
+          },
+          "idDisponibleNavigation": {
+            "$ref": "#/components/schemas/Disponible"
+          },
+          "idInmuebleNavigation": {
+            "$ref": "#/components/schemas/Inmueble"
+          },
+          "idTipoInmuebleNavigation": {
+            "$ref": "#/components/schemas/TiposInmueble"
+          },
+          "recibos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Recibo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DetallesRecibo": {
+        "type": "object",
+        "properties": {
+          "idDetalleRecibo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nroRecibo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idConcepto": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idMoneda": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "montoTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "comprobante": {
+            "type": "string",
+            "nullable": true
+          },
+          "idConceptoNavigation": {
+            "$ref": "#/components/schemas/ConceptosPago"
+          },
+          "idMonedaNavigation": {
+            "$ref": "#/components/schemas/Moneda"
+          },
+          "nroReciboNavigation": {
+            "$ref": "#/components/schemas/Recibo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Direccione": {
+        "type": "object",
+        "properties": {
+          "idDireccion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "calle": {
+            "type": "string",
+            "nullable": true
+          },
+          "numeracion": {
+            "type": "string",
+            "nullable": true
+          },
+          "codigoPostal": {
+            "type": "string",
+            "nullable": true
+          },
+          "idBarrio": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detallesInmuebles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetallesInmueble"
+            },
+            "nullable": true
+          },
+          "empleados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Empleado"
+            },
+            "nullable": true
+          },
+          "idBarrioNavigation": {
+            "$ref": "#/components/schemas/Barrio"
+          },
+          "inquilinos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Inquilino"
+            },
+            "nullable": true
+          },
+          "obreros": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Obrero"
+            },
+            "nullable": true
+          },
+          "propietarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Propietario"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Disponible": {
+        "type": "object",
+        "properties": {
+          "idDisponible": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "detalle": {
+            "type": "string",
+            "nullable": true
+          },
+          "detallesInmuebles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetallesInmueble"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Empleado": {
+        "type": "object",
+        "properties": {
+          "idEmpleado": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "idTipoDoc": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cbu": {
+            "type": "string",
+            "nullable": true
+          },
+          "idDireccion": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailContacto": {
+            "type": "string",
+            "nullable": true
+          },
+          "idTipoEmpleado": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idDireccionNavigation": {
+            "$ref": "#/components/schemas/Direccione"
+          },
+          "idTipoDocNavigation": {
+            "$ref": "#/components/schemas/TiposDoc"
+          },
+          "idTipoEmpleadoNavigation": {
+            "$ref": "#/components/schemas/TiposEmpleado"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Inmueble": {
+        "type": "object",
+        "properties": {
+          "idInmueble": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreInmueble": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "idPropietario": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idInquilino": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idLibreDeuda": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comentario"
+            },
+            "nullable": true
+          },
+          "contratos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contrato"
+            },
+            "nullable": true
+          },
+          "detallesInmuebles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetallesInmueble"
+            },
+            "nullable": true
+          },
+          "idInquilinoNavigation": {
+            "$ref": "#/components/schemas/Inquilino"
+          },
+          "idLibreDeudaNavigation": {
+            "$ref": "#/components/schemas/LibreDeudum"
+          },
+          "idPropietarioNavigation": {
+            "$ref": "#/components/schemas/Propietario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Inquilino": {
+        "type": "object",
+        "properties": {
+          "idInquilino": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "idTipoDoc": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cbu": {
+            "type": "string",
+            "nullable": true
+          },
+          "idDireccion": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailContacto": {
+            "type": "string",
+            "nullable": true
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comentario"
+            },
+            "nullable": true
+          },
+          "contratos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contrato"
+            },
+            "nullable": true
+          },
+          "idDireccionNavigation": {
+            "$ref": "#/components/schemas/Direccione"
+          },
+          "idTipoDocNavigation": {
+            "$ref": "#/components/schemas/TiposDoc"
+          },
+          "inmuebles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Inmueble"
+            },
+            "nullable": true
+          },
+          "recibos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Recibo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LibreDeudum": {
+        "type": "object",
+        "properties": {
+          "idLibreDeuda": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "detalle": {
+            "type": "string",
+            "nullable": true
+          },
+          "inmuebles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Inmueble"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Localidade": {
+        "type": "object",
+        "properties": {
+          "idLocalidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "localidad": {
+            "type": "string",
+            "nullable": true
+          },
+          "provincia": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "barrios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Barrio"
+            },
+            "nullable": true
+          },
+          "provinciaNavigation": {
+            "$ref": "#/components/schemas/Provincia"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Moneda": {
+        "type": "object",
+        "properties": {
+          "idMoneda": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoMoneda": {
+            "type": "string",
+            "nullable": true
+          },
+          "detallesRecibos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetallesRecibo"
+            },
+            "nullable": true
+          },
+          "tiposCambios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TiposCambio"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Obrero": {
+        "type": "object",
+        "properties": {
+          "idObrero": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "idTipoDoc": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cbu": {
+            "type": "string",
+            "nullable": true
+          },
+          "idDireccion": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailContacto": {
+            "type": "string",
+            "nullable": true
+          },
+          "idTipoObrero": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idDireccionNavigation": {
+            "$ref": "#/components/schemas/Direccione"
+          },
+          "idTipoDocNavigation": {
+            "$ref": "#/components/schemas/TiposDoc"
+          },
+          "idTipoObreroNavigation": {
+            "$ref": "#/components/schemas/TipoObrero"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Propietario": {
+        "type": "object",
+        "properties": {
+          "idPropietario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "idTipoDoc": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cbu": {
+            "type": "string",
+            "nullable": true
+          },
+          "idDireccion": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailContacto": {
+            "type": "string",
+            "nullable": true
+          },
+          "contratos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contrato"
+            },
+            "nullable": true
+          },
+          "idDireccionNavigation": {
+            "$ref": "#/components/schemas/Direccione"
+          },
+          "idTipoDocNavigation": {
+            "$ref": "#/components/schemas/TiposDoc"
+          },
+          "inmuebles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Inmueble"
+            },
+            "nullable": true
+          },
+          "recibos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Recibo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Provincia": {
+        "type": "object",
+        "properties": {
+          "idProvincia": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "provincia1": {
+            "type": "string",
+            "nullable": true
+          },
+          "localidades": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Localidade"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Recibo": {
+        "type": "object",
+        "properties": {
+          "nroRecibo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "idInquilino": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idPropietario": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idDetalleInmueble": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idTipoPago": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "estadoRecibo": {
+            "type": "string",
+            "nullable": true
+          },
+          "idContrato": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detallesRecibos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetallesRecibo"
+            },
+            "nullable": true
+          },
+          "idContratoNavigation": {
+            "$ref": "#/components/schemas/Contrato"
+          },
+          "idDetalleInmuebleNavigation": {
+            "$ref": "#/components/schemas/DetallesInmueble"
+          },
+          "idInquilinoNavigation": {
+            "$ref": "#/components/schemas/Inquilino"
+          },
+          "idPropietarioNavigation": {
+            "$ref": "#/components/schemas/Propietario"
+          },
+          "idTipoPagoNavigation": {
+            "$ref": "#/components/schemas/TiposPago"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TipoObrero": {
+        "type": "object",
+        "properties": {
+          "idTipoObrero": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoObrero1": {
+            "type": "string",
+            "nullable": true
+          },
+          "obreros": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Obrero"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TiposCambio": {
+        "type": "object",
+        "properties": {
+          "idTipoCambio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idMoneda": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "valorCambio": {
+            "type": "number",
+            "format": "double"
+          },
+          "idMonedaNavigation": {
+            "$ref": "#/components/schemas/Moneda"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TiposDoc": {
+        "type": "object",
+        "properties": {
+          "idTipoDoc": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descripcionDoc": {
+            "type": "string",
+            "nullable": true
+          },
+          "empleados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Empleado"
+            },
+            "nullable": true
+          },
+          "inquilinos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Inquilino"
+            },
+            "nullable": true
+          },
+          "obreros": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Obrero"
+            },
+            "nullable": true
+          },
+          "propietarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Propietario"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TiposEmpleado": {
+        "type": "object",
+        "properties": {
+          "idTipoEmpleado": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoEmpleado": {
+            "type": "string",
+            "nullable": true
+          },
+          "empleados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Empleado"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TiposInmueble": {
+        "type": "object",
+        "properties": {
+          "idTipoInmueble": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoInmueble": {
+            "type": "string",
+            "nullable": true
+          },
+          "detallesInmuebles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DetallesInmueble"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TiposPago": {
+        "type": "object",
+        "properties": {
+          "idTipoPago": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoPago": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "recargo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "recibos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Recibo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
