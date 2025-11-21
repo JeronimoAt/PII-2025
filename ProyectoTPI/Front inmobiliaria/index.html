@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inmobiliaria - Buscador y Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main class="layout">
+    <header class="header-main">
+        <div>
+            <h1>Inmosoft
+        <img src="img/logo.png" alt="logo" class="logo-header">
+            </h1>
+        </div>
+
+        <!-- BOTONES DE ALTA -->
+        <div class="top-actions">
+    <button id="btn-nuevo-contrato" class="btn-primary">+ Nuevo contrato</button>
+    <button id="btn-nuevo-inquilino" class="btn-secondary">+ Nuevo inquilino</button>
+    <button id="btn-nuevo-propietario" class="btn-secondary">+ Nuevo propietario</button>
+    <button id="btn-nuevo-recibo" class="btn-secondary">+ Nuevo recibo</button>
+    <button id="btn-nueva-liquidacion" class="btn-secondary">+ Nueva liquidación</button>
+</div>
+
+    </header>
+
+    <!-- ==========================
+         BUSCADOR DINÁMICO
+    =========================== -->
+    <section id="buscador">
+        <h2>🔎 Buscador</h2>
+
+        <div id="formulario-busqueda">
+            <label for="textoBuscado">Texto a buscar:</label>
+            <input
+                type="text"
+                id="textoBuscado"
+                placeholder="Ej: Pérez, 611001, Av. Siempre Viva..."
+            />
+
+            <label for="tabla">Buscar en la tabla:</label>
+            <select id="tabla">
+                <option value="Contratos">Contratos</option>
+                <option value="Inmuebles">Inmuebles</option>
+                <option value="Inquilinos">Inquilinos</option>
+                <option value="Propietarios">Propietarios</option>
+            </select>
+
+            <button id="btnBuscar">Buscar</button>
+        </div>
+
+        <h3>Resultados</h3>
+        <div id="resultados-container">
+            <p>Realiza una búsqueda para ver los resultados.</p>
+        </div>
+    </section>
+
+    <!-- ==========================
+         DASHBOARD
+    =========================== -->
+    <section id="dashboard" class="dashboard">
+        <h2>📊 Dashboard</h2>
+
+        <div class="dashboard-panel">
+            <h3 class="dashboard-title">Estado general de los ultimos 30 dias</h3>
+
+            <div class="dashboard-cards-dark">
+                <div class="dashboard-card-dark">
+                    <span class="card-label">Inquilinos con deuda</span>
+                    <span class="card-value" id="card-deudores-count">-</span>
+                    <span class="card-tag tag-warning">⚠ Morosidad</span>
+                </div>
+
+                <div class="dashboard-card-dark">
+                    <span class="card-label">Recibos últimos 15 dias</span>
+                    <span class="card-value" id="card-recibos-count">-</span>
+                    <span class="card-tag tag-info">📅 Movimientos</span>
+                </div>
+
+                <div class="dashboard-card-dark">
+                    <span class="card-label">Inquilinos sin deuda</span>
+                    <span class="card-value" id="card-sin-deuda">-</span>
+                    <span class="card-tag tag-success">✅ Al día</span>
+                </div>
+
+                <div class="dashboard-card-dark">
+                    <span class="card-label">Total registros en sistema</span>
+                    <span class="card-value" id="card-total-registros">-</span>
+                    <span class="card-tag tag-neutral">ℹ Resumen</span>
+                </div>
+            </div>
+
+            <div class="dashboard-chart-wrapper">
+                <canvas id="dashboard-chart"></canvas>
+            </div>
+<section class="dashboard-section">
+    <h2>Administraciones por localidad</h2>
+    <div class="chart-card">
+        <canvas id="pie-admins"></canvas>
+    </div>
+</section>
+
+<section class="dashboard-section">
+    <h2>Ventas por localidad</h2>
+    <div class="chart-card">
+    <canvas id="pie-ventas"></canvas>
+</div>
+
+</section>
+
+        </div>
+    </section>
+</main>
+
+<!-- ==========================
+     MODAL NUEVO CONTRATO
+=========================== -->
+<div id="modal-contrato" class="modal hidden">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog">
+         <button type="button" class="modal-close-btn" data-close-modal>&times;</button>
+        <h2>Nuevo contrato</h2>
+        <form id="form-nuevo-contrato" class="modal-form">
+            <!-- PROPIETARIO -->
+<div class="form-row autocomplete-container">
+    <label for="contrato-propietario">Propietario</label>
+    <input type="text" id="contrato-propietario" placeholder="Buscar propietario..." autocomplete="off" />
+    <div id="lista-propietarios" class="autocomplete-list"></div>
+</div>
+
+<!-- INQUILINO -->
+<div class="form-row autocomplete-container">
+    <label for="contrato-inquilino">Inquilino</label>
+    <input type="text" id="contrato-inquilino" placeholder="Buscar inquilino..." autocomplete="off" />
+    <div id="lista-inquilinos" class="autocomplete-list"></div>
+</div>
+
+<!-- INMUEBLE -->
+<div class="form-row autocomplete-container">
+    <label for="contrato-inmueble">Inmueble</label>
+    <input type="text" id="contrato-inmueble" placeholder="Buscar dirección..." autocomplete="off" />
+    <div id="lista-inmuebles" class="autocomplete-list"></div>
+</div>
+<div class="modal-actions">
+                <button type="button" class="btn-secondary" data-close-modal>Cancelar</button>
+                <button type="submit" class="btn-primary">Crear contrato</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!-- ==========================
+     MODAL NUEVO INQUILINO
+=========================== -->
+<div id="modal-inquilino" class="modal hidden">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog">
+        <button type="button" class="modal-close-btn" data-close-modal>&times;</button>
+
+        <h2>Nuevo inquilino</h2>
+        <form id="form-nuevo-inquilino" class="modal-form">
+            <div class="form-row">
+                <label for="inq-nombre">Nombre</label>
+                <input type="text" id="inq-nombre" required />
+            </div>
+            <div class="form-row">
+                <label for="inq-apellido">Apellido</label>
+                <input type="text" id="inq-apellido" required />
+            </div>
+            <div class="form-row">
+                <label for="inq-telefono">Teléfono</label>
+                <input type="text" id="inq-telefono" required />
+            </div>
+            <div class="form-row">
+                <label for="inq-mail">Mail de contacto</label>
+                <input type="email" id="inq-mail" required />
+            </div>
+
+            <div class="modal-actions">
+                <button
+        class="btn-secondary btn-sm"
+        data-editar-inq="${id}"
+        data-nombre="${nombre}"
+        data-apellido="${apellido}"
+        data-telefono="${telefono}"
+        data-mail="${mail}"
+    >
+        Editar
+    </button>
+    <button class="btn-primary btn-sm" data-eliminar-inq="${id}">Borrar</button>
+    <button type="submit"
+                class="btn-primary"
+                id="btn-guardar-inquilino">
+          Crear inquilino
+        </button>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- =====================================================
+     MODAL EDITAR / CREAR INMUEBLE
+===================================================== -->
+<div id="modal-inmueble" class="modal hidden">
+    <div class="modal-content">
+        <h2 id="titulo-modal-inmueble">Editar inmueble</h2>
+
+        <form id="form-inmueble">
+
+            <label>Nombre del inmueble</label>
+            <input type="text" id="inm-nombre" required />
+
+            <label>Descripción</label>
+            <textarea id="inm-descripcion" rows="3"></textarea>
+
+            <label>Propietario</label>
+            <input type="text" id="inm-propietario" required />
+
+            <label>Precio alquiler</label>
+            <input type="number" id="inm-precio-alquiler" step="0.01" />
+
+            <label>Precio venta</label>
+            <input type="number" id="inm-precio-venta" step="0.01" />
+
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" data-close-modal>Cancelar</button>
+                <button type="submit" class="btn-primary">Guardar inmueble</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!-- ==========================
+     MODAL NUEVO PROPIETARIO
+=========================== -->
+<div id="modal-propietario" class="modal hidden">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog">
+        <button type="button" class="modal-close-btn" data-close-modal>&times;</button>
+        <h2>Nuevo propietario</h2>
+        <form id="form-nuevo-propietario" class="modal-form">
+            <div class="form-row">
+                <label for="prop-nombre">Nombre</label>
+                <input type="text" id="prop-nombre" required />
+            </div>
+            <div class="form-row">
+                <label for="prop-apellido">Apellido</label>
+                <input type="text" id="prop-apellido" required />
+            </div>
+            <div class="form-row">
+                <label for="prop-telefono">Teléfono</label>
+                <input type="text" id="prop-telefono" required />
+            </div>
+            <div class="form-row">
+                <label for="prop-mail">Mail de contacto</label>
+                <input type="email" id="prop-mail" required />
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" data-close-modal>Cancelar</button>
+                <button type="submit" class="btn-primary">Guardar propietario</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- ==========================
+      MODAL NUEVO RECIBO
+=========================== -->
+<div id="modal-recibo" class="modal hidden">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog">
+        <button type="button" class="modal-close-btn" data-close-modal>&times;</button>
+        
+        <h2>Nuevo recibo</h2>
+        <form id="form-nuevo-recibo" class="modal-form">
+            <div class="form-row">
+                <label for="recibo-fecha">Fecha</label>
+                <input type="date" id="recibo-fecha" required />
+            </div>
+            <div class="form-row">
+                <label for="recibo-idInquilino">Id inquilino</label>
+                <input type="number" id="recibo-idInquilino" required />
+            </div>
+            <div class="form-row">
+                <label for="recibo-idPropietario">Id propietario</label>
+                <input type="number" id="recibo-idPropietario" required />
+            </div>
+            <div class="form-row">
+                <label for="recibo-idDetalleInmueble">Id detalle inmueble</label>
+                <input type="number" id="recibo-idDetalleInmueble" required />
+            </div>
+            <div class="form-row">
+                <label for="recibo-idTipoPago">Id tipo pago</label>
+                <input type="number" id="recibo-idTipoPago" required />
+            </div>
+            <div class="form-row">
+                <label for="recibo-monto">Monto total</label>
+                <input type="number" id="recibo-monto" required />
+            </div>
+            <div class="form-row">
+                <label for="recibo-estado">Estado</label>
+                <select id="recibo-estado" required>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Pagado">Pagado</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn-secondary" id="btn-pdf-recibo">
+        Descargar PDF
+    </button>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" data-close-modal>Cancelar</button>
+                <button type="submit" class="btn-primary">Guardar recibo</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<!-- ==========================
+      MODAL NUEVA LIQUIDACIÓN
+=========================== -->
+<div id="modal-liquidacion" class="modal hidden">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog">
+         <button type="button" class="modal-close-btn" data-close-modal>&times;</button>
+        <h2>Nueva liquidación</h2>
+        <form id="form-nueva-liquidacion" class="modal-form">
+            <div class="form-row">
+                <label for="liq-idPropietario">Id propietario</label>
+                <input type="number" id="liq-idPropietario" required />
+            </div>
+            <div class="form-row">
+                <label for="liq-periodo">Período</label>
+                <input type="month" id="liq-periodo" required />
+            </div>
+            <div class="form-row">
+                <label for="liq-montoTotal">Monto total</label>
+                <input type="number" id="liq-montoTotal" required />
+            </div>
+            <div class="form-row">
+                <label for="liq-observaciones">Observaciones</label>
+                <textarea id="liq-observaciones" rows="3"></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" data-close-modal>Cancelar</button>
+                <button type="submit" class="btn-primary">Guardar liquidación</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
