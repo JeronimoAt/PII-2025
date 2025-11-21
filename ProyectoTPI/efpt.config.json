@@ -1,0 +1,162 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "Propiedades_InmobiliariasContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "MinimumProductVersion": "2.6.1186",
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Inmobiliaria",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[Barrios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Clasificaciones]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMENTARIOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Conceptos_Pagos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Contratos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Detalles_Inmuebles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Detalles_Recibo]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Direcciones]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Disponibles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Empleados]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Inmuebles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Inquilinos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Libre_Deuda]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Localidades]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Monedas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OBREROS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Propietarios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Provincias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Recibos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Servicios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tipo_Obreros]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tipos_Cambios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tipos_doc]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tipos_Empleados]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tipos_Inmuebles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tipos_Pagos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[pa_contratos_detallados]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[pa_contratos_vigentes]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[pa_recibos_por_inquilino]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDatabaseNamesForRoutines": true,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseInternalAccessModifiersForSprocsAndFunctions": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false,
+   "UseT4Split": false
+}

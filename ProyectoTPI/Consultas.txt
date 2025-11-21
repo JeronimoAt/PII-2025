@@ -1,0 +1,58 @@
+﻿A) Por cada inquilino, el nombre completo, teléfono, correo de contacto y la fecha del último pago registrado. Inquilinos que tengan deuda (libre de deuda = 2). Calcular la última fecha de pago de cada inquilino. Agrupar por los datos del inquilino y filtrar con una cláusula adecuada para mostrar únicamente a quienes no realizaron ningún pago en el mes calendario actual. Ordenado alfabéticamente por el nombre del inquilino.
+
+SELECT
+(i.Nombre + ' ' + i.Apellido) 'Inquilino',
+i.Telefono 'Telefono',
+i.Mail_Contacto 'Mail',
+MAX(r.fecha)'UltimoPago'
+FROM Inquilinos i
+INNER JOIN Inmuebles inm
+ON inm.ID_inquilino = i.ID_Inquilino
+AND inm.ID_libre_deuda = 2 -- inquilinos con deuda segun el inmueble
+LEFT JOIN Recibos r
+ON r.ID_Inquilino = i.ID_Inquilino
+GROUP BY i.Nombre, i.Apellido, i.Telefono, i.Mail_Contacto
+HAVING SUM(CASE
+WHEN YEAR(r.fecha) = YEAR(GETDATE())
+AND MONTH(r.fecha) = MONTH(GETDATE())
+THEN 1 ELSE 0
+END) = 0
+ORDER BY Inquilino;
+
+
+B) Consulta que muestre el nombre del inmueble, el nombre y apellido del propietario, la dirección completa (compuesta por calle, numeración y localidad) y la fecha del último alquiler registrado. Tomando los resultados por inmueble y propietario, se muestran aquellos inmuebles que no hayan tenido ningún alquiler en los últimos 2 meses, tomando como referencia la fecha actual del sistema y excluyendo el día de hoy. Ordenando alfabéticamente los inmuebles por su nombre.
+
+SELECT
+i.Nombre_Inmueble 'Inmueble',
+(p.Nombre + ' ' + p.Apellido) 'Propietario',
+(d.Calle + ' ' + d.Numeracion + ', ' + l.localidad) 'Direccion',
+MAX(r.fecha) 'UltimoAlquiler'
+FROM Detalles_Recibo dr
+JOIN Recibos r ON dr.Nro_Recibo = r.Nro_Recibo
+JOIN Detalles_Inmuebles di ON r.ID_Detalle_Inmueble = di.ID_detalle_inmueble
+JOIN Inmuebles i ON di.ID_INMUEBLE = i.ID_Inmueble
+JOIN Propietarios p ON i.ID_Propietario = p.ID_Propietario
+JOIN Direcciones d ON di.ID_Direccion = d.ID_direccion
+JOIN Barrios b ON d.ID_barrio = b.ID_barrio
+JOIN Localidades l ON b.localidad = l.ID_localidad
+GROUP BY i.Nombre_Inmueble, p.Nombre, p.Apellido, d.Calle, d.Numeracion, l.localidad
+HAVING SUM(CASE
+WHEN r.fecha >= DATEADD(MONTH, -2, CAST(GETDATE() AS date))
+AND r.fecha < CAST(GETDATE() AS date)
+THEN 1 ELSE 0
+END) = 0
+ORDER BY i.Nombre_Inmueble;
+
+
+C) Por cada inquilino, el nombre completo, teléfono, correo de contacto y la fecha del último pago registrado. Inquilinos con Inmuebles asegurando que solo se consideren aquellos inmuebles cuyo indicador libre de deuda = 2. Vincular los Recibos. Calcular la última fecha de pago de cada inquilino usando una función de agregación sobre las fechas de recibo. No realizaron ningún pago en el mes calendario actual. Ordenado alfabéticamente por el nombre del inquilino.
+
+SELECT
+r.fecha 'Fecha',
+dr.Monto_Total 'Monto total',
+i.Nombre_Inmueble 'Nombre de inmueble'
+FROM Recibos r
+JOIN Detalles_Recibo dr ON r.Nro_Recibo = dr.Nro_Recibo
+JOIN Detalles_Inmuebles di ON r.ID_Detalle_Inmueble = di.ID_detalle_inmueble
+JOIN Inmuebles i ON di.ID_INMUEBLE = i.ID_Inmueble
+WHERE r.fecha >= DATEADD(MONTH, -3, GETDATE())
+ORDER BY r.fecha DESC;
